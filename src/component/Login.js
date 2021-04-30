@@ -31,11 +31,6 @@ export class Login extends Component {
             loading={this.state.loading}
           />
         </Segment.Group>
-        <footer className="footer">
-          <a href="https://www.freepik.com/free-photos-vectors/design">
-            Avatar characters created by freepik - www.freepik.com
-          </a>
-        </footer>
       </Fragment>
     );
   }
@@ -68,7 +63,7 @@ const LoginGridLayout = ({ image, form, loading }) => (
 );
 
 const BrandImage = () => (
-  <Image src="/images/avatars/animals.png" size="medium" centered />
+  <Image src="/images/experts.svg" size="medium" centered />
 );
 
 class LoginForm extends Component {
