@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Tab } from "semantic-ui-react";
-import UserCard from "./UserCard";
+import CardUI from "./CardUI";
 // import PollTeaser from "./PollTeaser";
 
 export class Home extends Component {
@@ -24,7 +24,7 @@ const panes = (props) => {
       render: () => (
         <Tab.Pane>
           {userQuestionData.answered.map((question) => (
-            <UserCard
+            <CardUI
               key={question.id}
               question_id={question.id}
               unanswered={true}
@@ -38,7 +38,7 @@ const panes = (props) => {
       render: () => (
         <Tab.Pane>
           {userQuestionData.unanswered.map((question) => (
-            <UserCard
+            <CardUI
               key={question.id}
               question_id={question.id}
               unanswered={false}

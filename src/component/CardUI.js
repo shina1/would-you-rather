@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Segment, Header, Grid, Image } from "semantic-ui-react";
-import PollQuestion from "./PollQuestion";
-import PollResult from "./PollResult";
-import PollTeaser from "./PollTeaser";
+import Question from "./Question";
+import Result from "./Result";
+import Teaser from "./Teaser";
 import { colors } from "../utils/helpers";
 import { Redirect } from "react-router-dom";
 
@@ -19,11 +19,11 @@ const PollContent = (props) => {
 
   switch (pollType) {
     case pollTypes.POLL_TEASER:
-      return <PollTeaser question={question} unanswered={unanswered} />;
+      return <Teaser question={question} unanswered={unanswered} />;
     case pollTypes.POLL_QUESTION:
-      return <PollQuestion question={question} />;
+      return <Question question={question} />;
     case pollTypes.POLL_RESULT:
-      return <PollResult question={question} />;
+      return <Result question={question} />;
     default:
       return;
   }

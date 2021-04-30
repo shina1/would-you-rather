@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import Login from "./Login";
-import Nav from "./Nav";
-import Home from "./Home";
-import UserCard from "./UserCard";
-import NewPoll from "./NewPoll";
-import Leaderboard from "./Leaderboard";
-import NoMatch from "./NoMatch";
+import UserLogin from "./UserLogin";
+import Header from "./Header";
+import Landing from "./Landing";
+import CardUI from "./CardUI";
+import StartPoll from "./StartPoll";
+import Board from "./Board";
+import ErroPage from "./ErroPage";
 
 class App extends Component {
   componentDidMount() {
@@ -24,21 +24,21 @@ class App extends Component {
             <Route
               render={() => (
                 <ContentGrid>
-                  <Login />
+                  <UserLogin />
                 </ContentGrid>
               )}
             />
           ) : (
             <Fragment>
-              <Nav />
+              <Header />
               <ContentGrid>
                 <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/questions/bad_id" component={NoMatch} />
-                  <Route path="/questions/:question_id" component={UserCard} />
-                  <Route path="/add" component={NewPoll} />
-                  <Route path="/leaderboard" component={Leaderboard} />
-                  <Route component={NoMatch} />
+                  <Route exact path="/" component={Landing} />
+                  <Route path="/questions/bad_id" component={ErroPage} />
+                  <Route path="/questions/:question_id" component={CardUI} />
+                  <Route path="/add" component={StartPoll} />
+                  <Route path="/leaderboard" component={Board} />
+                  <Route component={ErroPage} />
                 </Switch>
               </ContentGrid>
             </Fragment>
