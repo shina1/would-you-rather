@@ -13,14 +13,14 @@ export default function users(state = {}, action) {
         ...action.users,
       };
     case ADD_ANSWER_TO_USER:
-      const { authUser, qid, answer } = action;
+      const { authenticatedUser, qid, answer } = action;
 
       return {
         ...state,
-        [authUser]: {
-          ...state[authUser],
+        [authenticatedUser]: {
+          ...state[authenticatedUser],
           answers: {
-            ...state[authUser].answers,
+            ...state[authenticatedUser].answers,
             [qid]: answer,
           },
         },

@@ -93,8 +93,8 @@ export class PollResult extends Component {
   }
 }
 
-function mapStateToProps({ users, authUser }) {
-  const user = users[authUser];
+function mapStateToProps({ users, authenticatedUser }) {
+  const user = users[authenticatedUser];
   return {
     user,
   };

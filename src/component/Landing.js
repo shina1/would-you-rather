@@ -50,8 +50,8 @@ const panes = (props) => {
   ];
 };
 
-function mapStateToProps({ authUser, users, questions }) {
-  const answeredIds = Object.keys(users[authUser].answers);
+function mapStateToProps({ authenticatedUser, users, questions }) {
+  const answeredIds = Object.keys(users[authenticatedUser].answers);
   const answered = Object.values(questions)
     .filter((question) => !answeredIds.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);

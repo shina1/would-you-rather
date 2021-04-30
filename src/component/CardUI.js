@@ -87,7 +87,7 @@ export class UserCard extends Component {
 }
 
 function mapStateToProps(
-  { users, questions, authUser },
+  { users, questions, authenticatedUser },
   { match, question_id }
 ) {
   let question,
@@ -101,7 +101,7 @@ function mapStateToProps(
   } else {
     const { question_id } = match.params;
     question = questions[question_id];
-    const user = users[authUser];
+    const user = users[authenticatedUser];
 
     if (question === undefined) {
       badPath = true;

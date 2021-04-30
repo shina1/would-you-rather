@@ -11,7 +11,7 @@ class Nav extends Component {
   };
 
   render() {
-    const { authUser, users } = this.props;
+    const { authenticatedUser, users } = this.props;
 
     return (
       <Container>
@@ -23,12 +23,12 @@ class Nav extends Component {
             <Menu.Item>
               <span>
                 <Image
-                  src={users[authUser].avatarURL}
+                  src={users[authenticatedUser].avatarURL}
                   avatar
                   spaced="right"
                   verticalAlign="bottom"
                 />
-                {users[authUser].name}
+                {users[authenticatedUser].name}
               </span>
             </Menu.Item>
             <Menu.Item>
@@ -44,20 +44,16 @@ class Nav extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Grid>
-        <Grid as={Fragment} minWidth={375} maxWidth={650}>
-          ...
-        </Grid>
-        <Grid as={Fragment} maxWidth={374}>
-          ...
-        </Grid>
+        <Grid as={Fragment} minWidth={375} maxWidth={650}></Grid>
+        <Grid as={Fragment} maxWidth={374}></Grid>
       </Container>
     );
   }
 }
 
-function mapStateToProps({ users, authUser }) {
+function mapStateToProps({ users, authenticatedUser }) {
   return {
-    authUser,
+    authenticatedUser,
     users,
   };
 }

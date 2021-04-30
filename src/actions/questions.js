@@ -12,10 +12,10 @@ export function receiveQuestions(questions) {
   };
 }
 
-export function addAnswerToQuestion(authUser, qid, answer) {
+export function addAnswerToQuestion(authenticatedUser, qid, answer) {
   return {
     type: ADD_ANSWER_TO_QUESTION,
-    authUser,
+    authenticatedUser,
     qid,
     answer,
   };

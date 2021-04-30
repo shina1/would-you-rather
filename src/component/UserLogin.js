@@ -79,12 +79,12 @@ class LoginForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { onLoading, setAuthUser } = this.props;
-    const authUser = this.state.value;
+    const authenticatedUser = this.state.value;
 
     new Promise((res, rej) => {
       onLoading();
       setTimeout(() => res(), 500);
-    }).then(() => setAuthUser(authUser));
+    }).then(() => setAuthUser(authenticatedUser));
   };
   generateDropdownData = () => {
     const { users } = this.props;

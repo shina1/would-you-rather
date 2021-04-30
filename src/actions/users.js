@@ -14,21 +14,21 @@ export function receiveUsers(users) {
   };
 }
 
-function addAnswerToUser(authUser, qid, answer) {
+function addAnswerToUser(authenticatedUser, qid, answer) {
   return {
     type: ADD_ANSWER_TO_USER,
-    authUser,
+    authenticatedUser,
     qid,
     answer,
   };
 }
 
-export function handleSaveQuestionAnswer(authUser, qid, answer) {
+export function handleSaveQuestionAnswer(authenticatedUser, qid, answer) {
   return (dispatch) => {
-    dispatch(addAnswerToUser(authUser, qid, answer));
-    dispatch(addAnswerToQuestion(authUser, qid, answer));
+    dispatch(addAnswerToUser(authenticatedUser, qid, answer));
+    dispatch(addAnswerToQuestion(authenticatedUser, qid, answer));
 
-    return saveQuestionAnswer(authUser, qid, answer).catch((e) => {
+    return saveQuestionAnswer(authenticatedUser, qid, answer).catch((e) => {
       console.warn("Error in handleSaveQuestionAnswer:", e);
     });
   };

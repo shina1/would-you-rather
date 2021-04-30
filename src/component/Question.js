@@ -6,7 +6,7 @@ import { handleSaveQuestionAnswer } from "../actions/users";
 
 export class PollQuestion extends Component {
   static propTypes = {
-    authUser: PropTypes.string.isRequired,
+    authenticatedUser: PropTypes.string.isRequired,
     handleSaveQuestionAnswer: PropTypes.func.isRequired,
     question: PropTypes.object.isRequired,
   };
@@ -19,8 +19,16 @@ export class PollQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.value !== "") {
-      const { authUser, question, handleSaveQuestionAnswer } = this.props;
-      handleSaveQuestionAnswer(authUser, question.id, this.state.value);
+      const {
+        authenticatedUser,
+        question,
+        handleSaveQuestionAnswer,
+      } = this.props;
+      handleSaveQuestionAnswer(
+        authenticatedUser,
+        question.id,
+        this.state.value
+      );
     }
   };
 
@@ -65,9 +73,9 @@ export class PollQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authUser }, { match }) {
+function mapStateToProps({ authenticatedUser }, { match }) {
   return {
-    authUser,
+    authenticatedUser,
   };
 }
 

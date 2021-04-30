@@ -15,7 +15,7 @@ import { handleSaveQuestion } from "../actions/questions";
 
 export class NewPoll extends Component {
   static propTypes = {
-    authUser: PropTypes.string.isRequired,
+    authenticatedUser: PropTypes.string.isRequired,
     handleSaveQuestion: PropTypes.func.isRequired,
   };
   state = {
@@ -29,12 +29,12 @@ export class NewPoll extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { authUser, handleSaveQuestion } = this.props;
+    const { authenticatedUser, handleSaveQuestion } = this.props;
     const { option1, option2 } = this.state;
 
     new Promise((res, rej) => {
       this.setState({ isLoading: true });
-      handleSaveQuestion(option1, option2, authUser);
+      handleSaveQuestion(option1, option2, authenticatedUser);
       setTimeout(() => res("success"), 1000);
     }).then(() => {
       this.setState({
@@ -94,9 +94,9 @@ export class NewPoll extends Component {
   }
 }
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authenticatedUser }) {
   return {
-    authUser,
+    authenticatedUser,
   };
 }
 

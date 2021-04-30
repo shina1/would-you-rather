@@ -16,11 +16,11 @@ class App extends Component {
     this.props.handleInitialData();
   }
   render() {
-    const { authUser } = this.props;
+    const { authenticatedUser } = this.props;
     return (
       <Router>
         <div className="App">
-          {authUser === null ? (
+          {authenticatedUser === null ? (
             <Route
               render={() => (
                 <ContentGrid>
@@ -57,9 +57,9 @@ const ContentGrid = ({ children }) => (
   </Grid>
 );
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authenticatedUser }) {
   return {
-    authUser,
+    authenticatedUser,
   };
 }
 
